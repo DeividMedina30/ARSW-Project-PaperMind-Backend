@@ -1,7 +1,7 @@
-package edu.eci.arsw.PaperMind.Biblioteca.repository;
+package edu.eci.arsw.PaperMind.repository;
 
 
-import edu.eci.arsw.PaperMind.Biblioteca.model.Biblioteca;
+import edu.eci.arsw.PaperMind.model.Biblioteca;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,11 +1,10 @@
-package edu.eci.arsw.PaperMind.Biblioteca.services;
+package edu.eci.arsw.PaperMind.service;
 
 
-import edu.eci.arsw.PaperMind.Biblioteca.exception.ResourceNotFoundException;
-import edu.eci.arsw.PaperMind.Biblioteca.model.Biblioteca;
-import edu.eci.arsw.PaperMind.Biblioteca.repository.BibliotecaRepository;
+import edu.eci.arsw.PaperMind.exception.ResourceNotFoundException;
+import edu.eci.arsw.PaperMind.model.Biblioteca;
+import edu.eci.arsw.PaperMind.repository.BibliotecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;

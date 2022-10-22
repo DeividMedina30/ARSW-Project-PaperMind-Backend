@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="PaperMindBackend" />
         <module name="Backend" />
+        <module name="ARSW-Project-PaperMind-Backend" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ARSW-Project-PaperMind-Backend" options="-parameters" />
       <module name="Backend" options="-parameters" />
       <module name="PaperMindBackend" options="-parameters" />
     </option>

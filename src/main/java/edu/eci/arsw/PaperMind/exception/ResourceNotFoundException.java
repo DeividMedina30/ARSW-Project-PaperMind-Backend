@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.Biblioteca.exception;
+package edu.eci.arsw.PaperMind.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

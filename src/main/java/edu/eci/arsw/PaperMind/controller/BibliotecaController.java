@@ -1,16 +1,15 @@
-package edu.eci.arsw.PaperMind.Biblioteca.controller;
+package edu.eci.arsw.PaperMind.controller;
 
 
-import edu.eci.arsw.PaperMind.Biblioteca.exception.ResourceNotFoundException;
-import edu.eci.arsw.PaperMind.Biblioteca.model.Biblioteca;
-import edu.eci.arsw.PaperMind.Biblioteca.repository.BibliotecaRepository;
-import edu.eci.arsw.PaperMind.Biblioteca.services.BibliotecaServices;
+import edu.eci.arsw.PaperMind.exception.ResourceNotFoundException;
+import edu.eci.arsw.PaperMind.model.Biblioteca;
+import edu.eci.arsw.PaperMind.repository.BibliotecaRepository;
+import edu.eci.arsw.PaperMind.service.BibliotecaServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 
 @RestController //es un controller especial en RESTful especificacion y equivale a la suma de @Controller y @ResponseBody.

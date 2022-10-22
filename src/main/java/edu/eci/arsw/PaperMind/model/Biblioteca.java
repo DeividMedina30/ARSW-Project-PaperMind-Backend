@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.Biblioteca.model;
+package edu.eci.arsw.PaperMind.model;
 
 import java.sql.Date;
 import java.time.LocalDateTime;

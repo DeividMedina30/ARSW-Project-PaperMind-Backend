@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.Biblioteca.exception;
+package edu.eci.arsw.PaperMind.exception;
 
 import java.util.Date;
 
