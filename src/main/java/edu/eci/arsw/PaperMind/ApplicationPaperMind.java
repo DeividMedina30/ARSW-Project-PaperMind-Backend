@@ -8,7 +8,5 @@ public class ApplicationPaperMind {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationPaperMind.class, args);
-		
 	}
-
 }
