@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bibliotecas</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+    <div class="container">
+      <br>
+      <div>
+        <a href="/bibliotecas/0" class="btn btn-primary">Crear Biblioteca.</a>
+      </div>
+      <h2 th:if="${list == null} OR ${list.isEmpty()}">No hay Bibliotecas.</h2>
+      <div th:if=" ${list != null} AND ${!list.isEmpty()}">
+        <h2> Bibliotecas </h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Fecha Creacion</th>
+              <th>Fecha Modificacion</th>
+              <th>Descripcion</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="biblioteca : ${list}">
+              <td th:text="${biblioteca.nombre}">
+              <td th:text="${biblioteca.fecha_creacion}">
+              <td th:text="${biblioteca.fecha_modificacion}">
+              <td th:text="${biblioteca.descripcion}">
+              <td><a th:href="@{/bibliotecas/{id}(id=${biblioteca.id})}">Editar</a></td>
+              <td><a th:href="@{/bibliotecas/{id}(id=${biblioteca.id})}">Eliminar</a></td>
+             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+</html>
