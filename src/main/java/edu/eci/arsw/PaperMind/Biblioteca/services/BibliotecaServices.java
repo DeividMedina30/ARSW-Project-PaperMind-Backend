@@ -5,6 +5,7 @@ import edu.eci.arsw.PaperMind.Biblioteca.exception.ResourceNotFoundException;
 import edu.eci.arsw.PaperMind.Biblioteca.model.Biblioteca;
 import edu.eci.arsw.PaperMind.Biblioteca.repository.BibliotecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
