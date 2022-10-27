@@ -35,7 +35,7 @@ public class BibliotecaController {
     }
 
     //Save Biblioteca
-    @PostMapping("/bibliotecass")
+    @PostMapping("/bibliotecas")
     public ResponseEntity<?> createBiblioteca(@RequestBody Biblioteca biblioteca){
         try {
             return new ResponseEntity<>(this.bibliotecaServices.saveBiblioteca(biblioteca), HttpStatus.CREATED);
