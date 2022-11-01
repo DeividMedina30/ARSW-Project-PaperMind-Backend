@@ -1,6 +1,7 @@
 package edu.eci.arsw.PaperMind.backend.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -15,10 +16,10 @@ public class Biblioteca {
 	private String nombre;
 
 	@Column(name = "fecha_creacion")
-	private LocalDateTime fecha_creacion;
+	private Date fecha_creacion;
 
 	@Column(name = "fecha_modificacion")
-	private LocalDateTime fecha_modificacion;
+	private Date fecha_modificacion;
 
 	@Column(name = "descripcion")
 	private String descripcion;
@@ -27,7 +28,7 @@ public class Biblioteca {
 		super();
 	}
 
-	public Biblioteca(String nombre, LocalDateTime fecha_creacion, LocalDateTime fecha_modificacion){
+	public Biblioteca(String nombre, Date fecha_creacion, Date fecha_modificacion){
 		super();
 		this.nombre = nombre;
 		this.fecha_creacion = fecha_creacion;
@@ -50,19 +51,19 @@ public class Biblioteca {
 		this.nombre = nombre;
 	}
 
-	public LocalDateTime getFecha_creacion() {
+	public Date getFecha_creacion() {
 		return fecha_creacion;
 	}
 
-	public void setFecha_creacion(LocalDateTime fecha_creacion) {
+	public void setFecha_creacion(Date fecha_creacion) {
 		this.fecha_creacion = fecha_creacion;
 	}
 
-	public LocalDateTime getFecha_modificacion() {
+	public Date getFecha_modificacion() {
 		return fecha_modificacion;
 	}
 
-	public void setFecha_modificacion(LocalDateTime fecha_modificacion) {
+	public void setFecha_modificacion(Date fecha_modificacion) {
 		this.fecha_modificacion = fecha_modificacion;
 	}
 
@@ -73,7 +74,7 @@ public class Biblioteca {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
-	
+
+
+
 }

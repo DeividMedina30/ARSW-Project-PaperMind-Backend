@@ -31,7 +31,7 @@ public class BibliotecaServices {
     public Biblioteca updateBiblioteca(Long idBiblioteca, Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
         Biblioteca biblioteca = getBibliotecaById(idBiblioteca);
         biblioteca.setNombre(bibliotecaDatos.getNombre());
-        biblioteca.setFecha_modificacion(LocalDateTime.now());
+        biblioteca.setFecha_modificacion(biblioteca.getFecha_modificacion());
         biblioteca.setDescripcion(bibliotecaDatos.getDescripcion());
         return bibliotecaRepository.save(biblioteca);
     }
