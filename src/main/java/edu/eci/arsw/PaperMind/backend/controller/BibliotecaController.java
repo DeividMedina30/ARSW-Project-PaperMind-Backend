@@ -38,7 +38,6 @@ public class BibliotecaController {
     @PostMapping("/bibliotecas")
     public ResponseEntity<?> createBiblioteca(@RequestBody Biblioteca biblioteca){
         try {
-            System.out.println("Biblioteca a guardar: " + biblioteca);
             return new ResponseEntity<>(this.bibliotecaServices.saveBiblioteca(biblioteca), HttpStatus.CREATED);
         } catch (Exception ex) {
             return new ResponseEntity<>("Error al crear nueva Biblioteca",HttpStatus.FORBIDDEN);
