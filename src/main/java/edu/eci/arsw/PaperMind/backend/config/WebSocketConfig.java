@@ -9,7 +9,6 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 @Configuration
 @EnableWebSocketMessageBroker
-@CrossOrigin(origins = "*")
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
@@ -20,6 +19,6 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/getBibliotecas").setAllowedOriginPatterns("*").withSockJS();
+        registry.addEndpoint("/stompBibliotecas").setAllowedOriginPatterns("*").withSockJS();
     }
 }

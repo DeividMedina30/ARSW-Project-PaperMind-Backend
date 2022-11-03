@@ -18,9 +18,7 @@ public class WebSocketController {
 
         @MessageMapping("/recargarBiblioteca")
         public void recargarBiblioteca() throws Exception {
-            System.out.println("Llego al webSocket");
-
-            msgt.convertAndSend("/topic/recargarBiblioteca");
+            msgt.convertAndSend("/topic/recargarBiblioteca", "");
         }
     }
 
