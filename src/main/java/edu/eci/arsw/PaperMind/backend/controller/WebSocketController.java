@@ -8,6 +8,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class WebSocketController {
 
     @Controller
