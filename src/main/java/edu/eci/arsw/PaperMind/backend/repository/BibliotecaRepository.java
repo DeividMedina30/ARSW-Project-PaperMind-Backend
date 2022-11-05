@@ -11,7 +11,6 @@ import java.util.List;
 @Repository //componente encargado de resolver el acceso a los datos de nuestro micro-servicio.
 public interface BibliotecaRepository extends JpaRepository<Biblioteca, Long> {
 
-    @Query("SELECT * FROM bibliotecas b WHERE b.nombre = ?1")
-    Biblioteca findByName(String name);
+
 
 }

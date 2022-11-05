@@ -41,9 +41,5 @@ public class BibliotecaServices {
         bibliotecaRepository.delete(biblioteca);
     }
 
-    public Biblioteca getBibliotecaByName(String name){
-        Biblioteca biblioteca = null;
-        biblioteca = bibliotecaRepository.findByName(name);
-        return biblioteca;
-    }
+
 }
