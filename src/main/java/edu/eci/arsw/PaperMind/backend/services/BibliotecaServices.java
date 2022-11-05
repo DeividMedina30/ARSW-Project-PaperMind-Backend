@@ -16,7 +16,7 @@ public class BibliotecaServices {
     BibliotecaRepository bibliotecaRepository;
 
     public List<Biblioteca> getBibliotecas(){
-        return (List<Biblioteca>) bibliotecaRepository.findAll();
+        return bibliotecaRepository.findAll();
     }
 
     public Biblioteca getBibliotecaById(Long idBiblioteca) throws ResourceNotFoundException {
