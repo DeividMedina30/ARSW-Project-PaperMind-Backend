@@ -40,4 +40,10 @@ public class BibliotecaServices {
         Biblioteca biblioteca = getBibliotecaById(idBiblioteca);
         bibliotecaRepository.delete(biblioteca);
     }
+
+    public Biblioteca getBibliotecaByName(String name){
+        Biblioteca biblioteca = null;
+        biblioteca = bibliotecaRepository.findByName(name);
+        return biblioteca;
+    }
 }
