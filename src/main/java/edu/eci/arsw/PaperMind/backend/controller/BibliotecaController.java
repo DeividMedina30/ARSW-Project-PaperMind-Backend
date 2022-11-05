@@ -33,7 +33,7 @@ public class BibliotecaController {
     public ResponseEntity<?> getBibliotecaById(@PathVariable(value = "id") Long idBibilioteca) throws ResourceNotFoundException { //@PathVariable indica que nos referimos a datos incluidos dentro del mismo path del pedido
         return new ResponseEntity<>(bibliotecaServices.getBibliotecaById(idBibilioteca),HttpStatus.ACCEPTED);
     }
-    
+
     //Get Biblioteca by Name
     @GetMapping("/bibliotecas/{name}")
     public ResponseEntity<?> getBibliotecaByName(@PathVariable(value = "name") String name) throws ResourceNotFoundException { //@PathVariable indica que nos referimos a datos incluidos dentro del mismo path del pedido
