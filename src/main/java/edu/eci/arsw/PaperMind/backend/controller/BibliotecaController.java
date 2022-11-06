@@ -22,7 +22,7 @@ public class BibliotecaController {
     @Autowired
     private BibliotecaServices bibliotecaServices;
 
-	//Get Bibliotecas
+    //Get Bibliotecas
     @GetMapping("/bibliotecas")
     public List<Biblioteca> getAllBibliotecas(){
         return this.bibliotecaServices.getBibliotecas();
