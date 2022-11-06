@@ -5,6 +5,8 @@ import edu.eci.arsw.PaperMind.backend.exception.ResourceNotFoundException;
 import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
 import edu.eci.arsw.PaperMind.backend.repository.BibliotecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,7 +18,7 @@ public class BibliotecaServices {
     BibliotecaRepository bibliotecaRepository;
 
     public List<Biblioteca> getBibliotecas(){
-        return bibliotecaRepository.findAll();
+        return (List<Biblioteca>) bibliotecaRepository.findAll();
     }
 
     public Biblioteca getBibliotecaById(Long idBiblioteca) throws ResourceNotFoundException {
@@ -24,8 +26,13 @@ public class BibliotecaServices {
         return biblioteca;
     }
 
-    public Biblioteca saveBiblioteca(Biblioteca biblioteca){
-        return this.bibliotecaRepository.save(biblioteca);
+    public ResponseEntity<?> saveBiblioteca(Biblioteca biblioteca){
+        String nombre = biblioteca.getNombre();
+        Biblioteca bibliotecaRespuesta = getBibliotecaByName(nombre);
+        if(bibliotecaRespuesta != null){
+            return new ResponseEntity<>("Error al crear nueva Biblioteca",HttpStatus.FORBIDDEN);
+        }
+        return new ResponseEntity<>(this.bibliotecaRepository.save(biblioteca), HttpStatus.CREATED);
     }
 
     public Biblioteca updateBiblioteca(Long idBiblioteca, Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
@@ -41,9 +48,10 @@ public class BibliotecaServices {
         bibliotecaRepository.delete(biblioteca);
     }
 
+
     public Biblioteca getBibliotecaByName(String name){
         Biblioteca biblioteca = null;
-        biblioteca = bibliotecaRepository.findByName(name);
+        biblioteca = bibliotecaRepository.findByName(name.toLowerCase());
         return biblioteca;
     }
 

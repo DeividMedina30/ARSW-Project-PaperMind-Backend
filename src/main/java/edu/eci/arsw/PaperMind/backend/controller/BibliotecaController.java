@@ -28,25 +28,16 @@ public class BibliotecaController {
         return this.bibliotecaServices.getBibliotecas();
     }
 
-    //Get Biblioteca by ID
-    @GetMapping("/bibliotecas/{id}")
-    public ResponseEntity<?> getBibliotecaById(@PathVariable(value = "id") Long idBibilioteca) throws ResourceNotFoundException { //@PathVariable indica que nos referimos a datos incluidos dentro del mismo path del pedido
-        return new ResponseEntity<>(bibliotecaServices.getBibliotecaById(idBibilioteca),HttpStatus.ACCEPTED);
-    }
-
     //Get Biblioteca by Name
     @GetMapping("/bibliotecas/{name}")
     public ResponseEntity<?> getBibliotecaByName(@PathVariable(value = "name") String name) throws ResourceNotFoundException { //@PathVariable indica que nos referimos a datos incluidos dentro del mismo path del pedido
         return new ResponseEntity<>(bibliotecaServices.getBibliotecaByName(name),HttpStatus.ACCEPTED);
     }
+
     //Save Biblioteca
     @PostMapping("/bibliotecas")
     public ResponseEntity<?> createBiblioteca(@RequestBody Biblioteca biblioteca){
-        try {
-            return new ResponseEntity<>(this.bibliotecaServices.saveBiblioteca(biblioteca), HttpStatus.CREATED);
-        } catch (Exception ex) {
-            return new ResponseEntity<>("Error al crear nueva Biblioteca",HttpStatus.FORBIDDEN);
-        }
+        return bibliotecaServices.saveBiblioteca(biblioteca);
     }
 
     //Update Bibblioteca
@@ -61,4 +52,5 @@ public class BibliotecaController {
         this.bibliotecaServices.deleteBiblioteca(bibliotecaId);
         return new ResponseEntity<>("Biblioteca Borrada", HttpStatus.OK);
     }
+
 }
