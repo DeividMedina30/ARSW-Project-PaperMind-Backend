@@ -9,21 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class WebSocketController {
+        @Controller
+        public class STOMPMessagesHandler {
 
-    @Controller
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public class STOMPMessagesHandler {
+                @Autowired
+                SimpMessagingTemplate msgt;
 
-        @Autowired
-        SimpMessagingTemplate msgt;
+                @MessageMapping("/recargarBiblioteca")
+                public void recargarBiblioteca() throws Exception {
+                        msgt.convertAndSend("/topic/recargarBiblioteca", "");
 
-        @MessageMapping("/recargarBiblioteca")
-        public void recargarBiblioteca() throws Exception {
-            msgt.convertAndSend("/topic/recargarBiblioteca", "");
-            
+                }
         }
-    }
 
 }
