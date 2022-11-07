@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.stereotype.Controller;
 
 @Configuration
 @EnableWebSocketMessageBroker
+@Controller
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
