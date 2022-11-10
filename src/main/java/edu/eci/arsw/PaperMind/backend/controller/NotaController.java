@@ -17,7 +17,6 @@ import java.util.List;
 public class NotaController {
     @RestController
     @RequestMapping("/api")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public class notaController {
         @Autowired
         private NotaRepository notaRepository;
