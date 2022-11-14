@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController //es un controller especial en RESTful especificacion y equivale a la suma de @Controller y @ResponseBody.
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BibliotecaController {
 
     @Autowired

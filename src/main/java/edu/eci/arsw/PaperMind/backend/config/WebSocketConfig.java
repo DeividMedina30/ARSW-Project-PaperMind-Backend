@@ -2,16 +2,12 @@ package edu.eci.arsw.PaperMind.backend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
-import org.springframework.stereotype.Controller;
 
 @Configuration
 @EnableWebSocketMessageBroker
-@Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
@@ -22,6 +18,6 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/stompBibliotecas").setAllowedOriginPatterns("*").withSockJS();
+        registry.addEndpoint("/stompBiblioteca").setAllowedOriginPatterns("*").withSockJS();
     }
 }
