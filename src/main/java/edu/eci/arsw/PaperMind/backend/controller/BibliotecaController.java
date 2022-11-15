@@ -47,10 +47,9 @@ public class BibliotecaController {
     }
 
     //Delete Biblioteca
-    @DeleteMapping("/bibliotecas/{id}")
-    public ResponseEntity<?> deleteBiblioteca(@PathVariable(value = "id") Long bibliotecaId) throws ResourceNotFoundException {
-        this.bibliotecaServices.deleteBiblioteca(bibliotecaId);
-        return new ResponseEntity<>("Biblioteca Borrada", HttpStatus.OK);
+    @DeleteMapping("/bibliotecas/{nombre}")
+    public ResponseEntity<?> deleteBiblioteca(@PathVariable(value = "nombre") String nombre) throws ResourceNotFoundException {
+        return this.bibliotecaServices.deleteBiblioteca(nombre);
     }
 
 }

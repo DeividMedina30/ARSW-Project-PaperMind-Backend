@@ -42,9 +42,13 @@ public class BibliotecaServices {
         return bibliotecaRepository.save(biblioteca);
     }
 
-    public void deleteBiblioteca(Long idBiblioteca) throws ResourceNotFoundException {
-        Biblioteca biblioteca = getBibliotecaById(idBiblioteca);
-        bibliotecaRepository.delete(biblioteca);
+    public ResponseEntity<?> deleteBiblioteca(String nombre) {
+        Biblioteca biblioteca = getBibliotecaByName(nombre);
+        if(biblioteca == null){
+            return new ResponseEntity<>("Error al borrar nueva biblioteca Biblioteca",HttpStatus.BAD_REQUEST);    
+        }
+        bibliotecaRepository.deleteByName(nombre);
+        return new ResponseEntity<>("Se borro correctamente la biblioteca",HttpStatus.OK);  
     }
 
 
