@@ -47,7 +47,7 @@ public class BibliotecaServices {
         if(biblioteca == null){
             return new ResponseEntity<>("Error al borrar nueva biblioteca Biblioteca",HttpStatus.BAD_REQUEST);    
         }
-        bibliotecaRepository.deleteByName(nombre);
+        bibliotecaRepository.deleteById(biblioteca.getId_biblioteca());
         return new ResponseEntity<>("Se borro correctamente la biblioteca",HttpStatus.OK);  
     }
 
