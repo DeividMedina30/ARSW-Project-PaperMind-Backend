@@ -41,9 +41,9 @@ public class BibliotecaController {
     }
 
     //Update Bibblioteca
-    @PutMapping("/bibliotecas/{id}")
-    public ResponseEntity<?> updateBiblioteca(@PathVariable(value = "id") Long bibliotecaId, @RequestBody Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
-        return new ResponseEntity<>(this.bibliotecaServices.updateBiblioteca(bibliotecaId, bibliotecaDatos), HttpStatus.ACCEPTED);
+    @PutMapping("/bibliotecas/{name}")
+    public ResponseEntity<?> updateBiblioteca(@PathVariable(value = "name") String name, @RequestBody Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
+        return this.bibliotecaServices.updateBiblioteca(name, bibliotecaDatos);
     }
 
     //Delete Biblioteca

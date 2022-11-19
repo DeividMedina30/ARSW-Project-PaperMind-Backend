@@ -1,7 +1,5 @@
 package edu.eci.arsw.PaperMind.backend.services;
 
-
-import edu.eci.arsw.PaperMind.backend.exception.ResourceNotFoundException;
 import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
 import edu.eci.arsw.PaperMind.backend.repository.BibliotecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BibliotecaServices {
@@ -17,12 +16,7 @@ public class BibliotecaServices {
     BibliotecaRepository bibliotecaRepository;
 
     public List<Biblioteca> getBibliotecas(){
-        return (List<Biblioteca>) bibliotecaRepository.findAll();
-    }
-
-    public Biblioteca getBibliotecaById(Long idBiblioteca) throws ResourceNotFoundException {
-        Biblioteca biblioteca = bibliotecaRepository.findById(idBiblioteca).orElseThrow(() -> new ResourceNotFoundException(String.format("No se encontro la biblioteca con el ID: %d", idBiblioteca)));
-        return biblioteca;
+        return bibliotecaRepository.findAll();
     }
 
     public ResponseEntity<?> saveBiblioteca(Biblioteca biblioteca){
@@ -34,12 +28,17 @@ public class BibliotecaServices {
         return new ResponseEntity<>(this.bibliotecaRepository.save(biblioteca), HttpStatus.CREATED);
     }
 
-    public Biblioteca updateBiblioteca(Long idBiblioteca, Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
-        Biblioteca biblioteca = getBibliotecaById(idBiblioteca);
-        biblioteca.setNombre(bibliotecaDatos.getNombre());
-        biblioteca.setFecha_modificacion(biblioteca.getFecha_modificacion());
-        biblioteca.setDescripcion(bibliotecaDatos.getDescripcion());
-        return bibliotecaRepository.save(biblioteca);
+    public ResponseEntity<?> updateBiblioteca(String name, Biblioteca bibliotecaDatos) {
+        Biblioteca bibliotecaActualizar = getBibliotecaByName(name);
+        Biblioteca bibliotecaExistente = getBibliotecaByName(bibliotecaDatos.getNombre());
+        if((bibliotecaExistente == null) || (bibliotecaActualizar.getId_biblioteca().equals(bibliotecaExistente.getId_biblioteca()))){
+        }
+        else if((!bibliotecaDatos.getNombre().equals(bibliotecaExistente.getNombre()))){
+        }else{
+            return new ResponseEntity<>("Error al actualizar la Biblioteca.",HttpStatus.NOT_FOUND);
+        }
+        updateBiblioteca(bibliotecaActualizar, bibliotecaDatos);
+        return new ResponseEntity<>(getBibliotecaByName(bibliotecaDatos.getNombre()) ,HttpStatus.OK);
     }
 
     public ResponseEntity<?> deleteBiblioteca(String nombre) {
@@ -53,10 +52,16 @@ public class BibliotecaServices {
 
 
     public Biblioteca getBibliotecaByName(String name){
-        Biblioteca biblioteca = null;
+        Biblioteca biblioteca;
         biblioteca = bibliotecaRepository.findByName(name.toLowerCase());
         return biblioteca;
     }
 
+    private void updateBiblioteca(Biblioteca bibliotecaActualizar, Biblioteca bibliotecaDatos){
+        bibliotecaActualizar.setNombre(bibliotecaDatos.getNombre());
+        bibliotecaActualizar.setFecha_modificacion(bibliotecaDatos.getFecha_modificacion());
+        bibliotecaActualizar.setDescripcion(bibliotecaDatos.getDescripcion());
+        bibliotecaRepository.save(bibliotecaActualizar);
+    }
 
 }
