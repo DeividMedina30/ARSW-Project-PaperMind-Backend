@@ -7,17 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BibliotecaServices {
 
     @Autowired
     BibliotecaRepository bibliotecaRepository;
-
-    public List<Biblioteca> getBibliotecas(){
-        return bibliotecaRepository.findAll();
-    }
 
     public ResponseEntity<?> saveBiblioteca(Biblioteca biblioteca){
         String nombre = biblioteca.getNombre();
@@ -26,6 +21,16 @@ public class BibliotecaServices {
             return new ResponseEntity<>("Error al crear nueva Biblioteca",HttpStatus.FORBIDDEN);
         }
         return new ResponseEntity<>(this.bibliotecaRepository.save(biblioteca), HttpStatus.CREATED);
+    }
+
+    public List<Biblioteca> getBibliotecas(){
+        return bibliotecaRepository.findAll();
+    }
+
+    public Biblioteca getBibliotecaByName(String name){
+        Biblioteca biblioteca;
+        biblioteca = bibliotecaRepository.findByNombre(name);
+        return biblioteca;
     }
 
     public ResponseEntity<?> updateBiblioteca(String name, Biblioteca bibliotecaDatos) {
@@ -41,27 +46,20 @@ public class BibliotecaServices {
         return new ResponseEntity<>(getBibliotecaByName(bibliotecaDatos.getNombre()) ,HttpStatus.OK);
     }
 
-    public ResponseEntity<?> deleteBiblioteca(String nombre) {
-        Biblioteca biblioteca = getBibliotecaByName(nombre);
-        if(biblioteca == null){
-            return new ResponseEntity<>("Error al borrar nueva biblioteca Biblioteca",HttpStatus.BAD_REQUEST);    
-        }
-        bibliotecaRepository.deleteById(biblioteca.getId_biblioteca());
-        return new ResponseEntity<>("Se borro correctamente la biblioteca",HttpStatus.OK);  
-    }
-
-
-    public Biblioteca getBibliotecaByName(String name){
-        Biblioteca biblioteca;
-        biblioteca = bibliotecaRepository.findByName(name.toLowerCase());
-        return biblioteca;
-    }
-
     private void updateBiblioteca(Biblioteca bibliotecaActualizar, Biblioteca bibliotecaDatos){
         bibliotecaActualizar.setNombre(bibliotecaDatos.getNombre());
         bibliotecaActualizar.setFecha_modificacion(bibliotecaDatos.getFecha_modificacion());
         bibliotecaActualizar.setDescripcion(bibliotecaDatos.getDescripcion());
         bibliotecaRepository.save(bibliotecaActualizar);
+    }
+
+    public ResponseEntity<?> deleteBiblioteca(String nombre) {
+        Biblioteca biblioteca = getBibliotecaByName(nombre);
+        if(biblioteca == null){
+            return new ResponseEntity<>("Error al borrar nueva biblioteca Biblioteca",HttpStatus.BAD_REQUEST);
+        }
+        bibliotecaRepository.deleteById(biblioteca.getId_biblioteca());
+        return new ResponseEntity<>("Se borro correctamente la biblioteca",HttpStatus.OK);
     }
 
 }
