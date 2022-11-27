@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +19,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.lenient;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@DataJpaTest
 public class BibliotecaServicesTests {
 
     @Mock

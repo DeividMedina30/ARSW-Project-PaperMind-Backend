@@ -3,7 +3,6 @@ package edu.eci.arsw.PaperMind.backend.controller;
 
 import edu.eci.arsw.PaperMind.backend.exception.ResourceNotFoundException;
 import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
-import edu.eci.arsw.PaperMind.backend.repository.BibliotecaRepository;
 import edu.eci.arsw.PaperMind.backend.services.BibliotecaServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,13 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController //es un controller especial en RESTful especificacion y equivale a la suma de @Controller y @ResponseBody.
 @RequestMapping("/api")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BibliotecaController {
 
-    @Autowired
-    private BibliotecaRepository bibliotecaRepository;
     @Autowired
     private BibliotecaServices bibliotecaServices;
 
