@@ -10,6 +10,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@5
+  displayName: 'Prepare analysis on SonarQube'
+  inputs:
+    SonarQube: BackSonarQubeAzureDevops
+    projectKey: 'sqa_08c6a3791ef83db2f3d25b50819740d2fc44989f'
+    projectName: 'Project-Back-Key'
+    extraProperties: |
+     # Additional properties that will be passed to the scanner,
+     # Put one key=value per line, example:
+     # sonar.exclusions=**/*.bin
+     sonar.projectKey=ProjectBack	 
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,3 +32,17 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: SonarSource.sonarqube.291ed61f-1ee4-45d3-b1b0-bf822d9095ef.SonarQubePublish@5
+  displayName: 'Publish Quality Gate Result'
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
