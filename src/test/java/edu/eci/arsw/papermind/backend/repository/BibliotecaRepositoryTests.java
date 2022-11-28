@@ -13,7 +13,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest //proporciona una forma conveniente de configurar un entorno con una base de datos integrada para probar nuestras consultas de base de datos.
-class BibliotecaRepositoryTests {
+public class BibliotecaRepositoryTests {
 
     @Autowired
     private BibliotecaRepository bibliotecaRepository;

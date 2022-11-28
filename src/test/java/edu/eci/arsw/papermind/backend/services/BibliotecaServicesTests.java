@@ -20,7 +20,7 @@ import static org.mockito.Mockito.lenient;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
-class BibliotecaServicesTests {
+public class BibliotecaServicesTests {
 
     @Mock
     private static BibliotecaRepository bibliotecaRepository;
