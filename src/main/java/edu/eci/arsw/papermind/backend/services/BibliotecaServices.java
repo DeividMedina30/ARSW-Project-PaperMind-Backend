@@ -1,7 +1,7 @@
-package edu.eci.arsw.PaperMind.backend.services;
+package edu.eci.arsw.papermind.backend.services;
 
-import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
-import edu.eci.arsw.PaperMind.backend.repository.BibliotecaRepository;
+import edu.eci.arsw.papermind.backend.model.Biblioteca;
+import edu.eci.arsw.papermind.backend.repository.BibliotecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,8 +48,8 @@ public class BibliotecaServices {
 
     private void updateBiblioteca(Biblioteca bibliotecaActualizar, Biblioteca bibliotecaDatos){
         bibliotecaActualizar.setNombre(bibliotecaDatos.getNombre());
-        bibliotecaActualizar.setFecha_modificacion(bibliotecaDatos.getFecha_modificacion());
-        bibliotecaActualizar.setDescripcion(bibliotecaDatos.getDescripcion());
+        bibliotecaActualizar.setFecha_modification(bibliotecaDatos.getFecha_modification());
+        bibliotecaActualizar.setDescription(bibliotecaDatos.getDescription());
         bibliotecaRepository.save(bibliotecaActualizar);
     }
 

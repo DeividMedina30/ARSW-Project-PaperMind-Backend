@@ -1,9 +1,8 @@
-package edu.eci.arsw.PaperMind.backend.controller;
+package edu.eci.arsw.papermind.backend.controller;
 
-import edu.eci.arsw.PaperMind.backend.exception.ResourceNotFoundException;
-import edu.eci.arsw.PaperMind.backend.model.Login;
-import edu.eci.arsw.PaperMind.backend.model.User;
-import edu.eci.arsw.PaperMind.backend.services.UserServices;
+import edu.eci.arsw.papermind.backend.model.Login;
+import edu.eci.arsw.papermind.backend.model.User;
+import edu.eci.arsw.papermind.backend.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

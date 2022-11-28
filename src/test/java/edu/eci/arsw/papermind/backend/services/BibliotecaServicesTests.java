@@ -1,7 +1,7 @@
-package edu.eci.arsw.PaperMind.backend.services;
+package edu.eci.arsw.papermind.backend.services;
 
-import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
-import edu.eci.arsw.PaperMind.backend.repository.BibliotecaRepository;
+import edu.eci.arsw.papermind.backend.model.Biblioteca;
+import edu.eci.arsw.papermind.backend.repository.BibliotecaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.lenient;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
-public class BibliotecaServicesTests {
+class BibliotecaServicesTests {
 
     @Mock
     private static BibliotecaRepository bibliotecaRepository;
@@ -39,15 +39,15 @@ public class BibliotecaServicesTests {
     public void init(){
         biblioteca = new Biblioteca();
         biblioteca.setNombre("Prueba");
-        biblioteca.setFecha_creacion(new Date(2022-11-22));
-        biblioteca.setFecha_modificacion(new Date(2022-11-22));
-        biblioteca.setDescripcion("Hola");
+        biblioteca.setFecha_recreational(new Date(2022-11-22));
+        biblioteca.setFecha_modification(new Date(2022-11-22));
+        biblioteca.setDescription("Hola");
 
         biblioteca2 = new Biblioteca();
         biblioteca2.setNombre("Test");
-        biblioteca2.setFecha_creacion(new Date(2022-11-22));
-        biblioteca2.setFecha_modificacion(new Date(2022-11-22));
-        biblioteca2.setDescripcion("Hola Mundo");
+        biblioteca2.setFecha_recreational(new Date(2022-11-22));
+        biblioteca2.setFecha_modification(new Date(2022-11-22));
+        biblioteca2.setDescription("Hola Mundo");
 
         bibliotecas = new ArrayList<>();
         bibliotecas.add(biblioteca);
@@ -95,6 +95,7 @@ public class BibliotecaServicesTests {
     void testDeleteBiblioteca(){
         //given
         long bibliotecaId = 2L;
+        String mensaje = "Se borro correctamente la biblioteca";
         given(bibliotecaRepository.findByNombre(biblioteca2.getNombre())).willReturn(biblioteca2);
         lenient().when(bibliotecaRepository.findById(bibliotecaId)).thenReturn(null);  //Omitir los stubs estrictos. Esto también se conoce como stubbing indulgente.
         //when
@@ -102,6 +103,6 @@ public class BibliotecaServicesTests {
         //then
         System.out.println(bibliotecaRespuesta.getStatusCodeValue());
         String respuesta = (String) bibliotecaRespuesta.getBody();
-        assertEquals(respuesta, "Se borro correctamente la biblioteca");
+        assertEquals(respuesta, mensaje);
     }
 }

@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.backend.controller;
+package edu.eci.arsw.papermind.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -15,8 +15,6 @@ public class WebSocketController {
 
                 @MessageMapping("/recargarBiblioteca")
                 public void recargarBiblioteca() throws Exception {
-                        System.out.println("Llegoooooooooooooooooooooooooooooooooooooooooooooooooooo al webSocket");
-
                         msgt.convertAndSend("/topic/recargarBiblioteca", "");
                 }
         }

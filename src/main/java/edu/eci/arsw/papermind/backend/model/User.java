@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.backend.model;
+package edu.eci.arsw.papermind.backend.model;
 import javax.persistence.*;
 
 
@@ -16,13 +16,13 @@ public class User {
     @Column(name = "correo" , nullable = false, unique = true)
     private String correo;
     @Column(name = "contraseña", nullable = false)
-    private String contraseña;
+    private String password;
 
-    public User(String correo, String contraseña, String nombre, String apellido){
+    public User(String correo, String password, String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.password = password;
     }
 
     public User(){}
@@ -51,11 +51,11 @@ public class User {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

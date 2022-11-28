@@ -1,6 +1,6 @@
-package edu.eci.arsw.PaperMind.backend.repository;
+package edu.eci.arsw.papermind.backend.repository;
 
-import edu.eci.arsw.PaperMind.backend.model.Biblioteca;
+import edu.eci.arsw.papermind.backend.model.Biblioteca;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest //proporciona una forma conveniente de configurar un entorno con una base de datos integrada para probar nuestras consultas de base de datos.
-public class BibliotecaRepositoryTests {
+class BibliotecaRepositoryTests {
 
     @Autowired
     private BibliotecaRepository bibliotecaRepository;
@@ -26,15 +26,15 @@ public class BibliotecaRepositoryTests {
     public void inicializarVariables(){
         biblioteca = new Biblioteca();
         biblioteca.setNombre("Biblioteca 01");
-        biblioteca.setFecha_creacion(new Date(2022 - 11 - 22));
-        biblioteca.setFecha_modificacion(new Date(2022 - 11 - 22));
-        biblioteca.setDescripcion("Hola");
+        biblioteca.setFecha_recreational(new Date(2022 - 11 - 22));
+        biblioteca.setFecha_modification(new Date(2022 - 11 - 22));
+        biblioteca.setDescription("Hola");
 
         biblioteca2 = new Biblioteca();
         biblioteca2.setNombre("Biblioteca 02");
-        biblioteca2.setFecha_creacion(new Date(2022 - 11 - 22));
-        biblioteca2.setFecha_modificacion(new Date(2022 - 11 - 22));
-        biblioteca2.setDescripcion("Hola");
+        biblioteca2.setFecha_recreational(new Date(2022 - 11 - 22));
+        biblioteca2.setFecha_modification(new Date(2022 - 11 - 22));
+        biblioteca2.setDescription("Hola");
 
         bibliotecas = new ArrayList<>();
         bibliotecas.add(biblioteca);
@@ -68,10 +68,10 @@ public class BibliotecaRepositoryTests {
     @Test
     void testUpdateBiblioteca() {
         biblioteca.setNombre("Biblioteca Nueva");
-        biblioteca.setDescripcion("Hola Nuevo");
+        biblioteca.setDescription("Hola Nuevo");
         Biblioteca bibliotecaActualziada = bibliotecaRepository.save(biblioteca);
-        assertEquals(bibliotecaActualziada.getNombre(),"Biblioteca Nueva");
-        assertEquals(bibliotecaActualziada.getDescripcion(),"Hola Nuevo");
+        assertEquals(bibliotecaActualziada.getNombre(),biblioteca.getNombre());
+        assertEquals(bibliotecaActualziada.getDescription(),biblioteca.getDescription());
     }
 
     @DisplayName("Test Eliminar Biblioteca.")

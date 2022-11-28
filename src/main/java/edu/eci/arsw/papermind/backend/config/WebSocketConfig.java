@@ -1,4 +1,4 @@
-package edu.eci.arsw.PaperMind.backend.config;
+package edu.eci.arsw.papermind.backend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

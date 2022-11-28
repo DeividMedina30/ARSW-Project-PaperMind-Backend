@@ -1,7 +1,7 @@
-package edu.eci.arsw.PaperMind.backend.repository;
+package edu.eci.arsw.papermind.backend.repository;
 
 
-import edu.eci.arsw.PaperMind.backend.model.User;
+import edu.eci.arsw.papermind.backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "select * from usuarios where correo = :correo and contraseña =:contraseña", nativeQuery = true)
-    User findByUsernameAndPassword(@Param("correo") String correo, @Param("contraseña") String contraseña);
+    @Query(value = "select * from usuarios where correo = :correo and contraseña =:password", nativeQuery = true)
+    User findByUsernameAndPassword(@Param("correo") String correo, @Param("password") String password);
 
 }

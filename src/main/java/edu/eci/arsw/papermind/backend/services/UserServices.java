@@ -1,8 +1,8 @@
-package edu.eci.arsw.PaperMind.backend.services;
+package edu.eci.arsw.papermind.backend.services;
 
-import edu.eci.arsw.PaperMind.backend.model.Login;
-import edu.eci.arsw.PaperMind.backend.model.User;
-import edu.eci.arsw.PaperMind.backend.repository.UserRepository;
+import edu.eci.arsw.papermind.backend.model.Login;
+import edu.eci.arsw.papermind.backend.model.User;
+import edu.eci.arsw.papermind.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +13,23 @@ public class UserServices {
     @Autowired
     UserRepository userRepository;
 
-    public User addUser(User user) throws Exception {
+    public User addUser(User user) {
         User newUser = null;
         try{
             newUser = userRepository.save(user);
         } catch (Exception e) {
-            throw new Exception("ERROR: El usuario no pudo ser añadido");
+            e.printStackTrace();
         }
         return newUser;
     }
 
-    public User validateLogin(Login login) throws Exception {
+    public User validateLogin(Login login) {
         User searchedUser = userRepository.findByUsernameAndPassword(login.getCorreo(), login.getContraseña());
-        if(searchedUser == null){
-            throw new Exception("ERROR: Credenciales incorrectas");
+        try{
+            if(searchedUser == null){
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return searchedUser;
 
