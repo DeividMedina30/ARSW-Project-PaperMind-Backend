@@ -26,13 +26,13 @@ public class BibliotecaRepositoryTests {
     public void inicializarVariables(){
         biblioteca = new Biblioteca();
         biblioteca.setNombre("Biblioteca 01");
-        biblioteca.setFecha_recreational(new Date(2022 - 11 - 22));
+        biblioteca.setFecha_dateCreated(new Date(2022 - 11 - 22));
         biblioteca.setFecha_modification(new Date(2022 - 11 - 22));
         biblioteca.setDescription("Hola");
 
         biblioteca2 = new Biblioteca();
         biblioteca2.setNombre("Biblioteca 02");
-        biblioteca2.setFecha_recreational(new Date(2022 - 11 - 22));
+        biblioteca2.setFecha_dateCreated(new Date(2022 - 11 - 22));
         biblioteca2.setFecha_modification(new Date(2022 - 11 - 22));
         biblioteca2.setDescription("Hola");
 

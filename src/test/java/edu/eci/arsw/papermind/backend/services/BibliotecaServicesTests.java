@@ -39,13 +39,13 @@ public class BibliotecaServicesTests {
     public void init(){
         biblioteca = new Biblioteca();
         biblioteca.setNombre("Prueba");
-        biblioteca.setFecha_recreational(new Date(2022-11-22));
+        biblioteca.setFecha_dateCreated(new Date(2022-11-22));
         biblioteca.setFecha_modification(new Date(2022-11-22));
         biblioteca.setDescription("Hola");
 
         biblioteca2 = new Biblioteca();
         biblioteca2.setNombre("Test");
-        biblioteca2.setFecha_recreational(new Date(2022-11-22));
+        biblioteca2.setFecha_dateCreated(new Date(2022-11-22));
         biblioteca2.setFecha_modification(new Date(2022-11-22));
         biblioteca2.setDescription("Hola Mundo");
 

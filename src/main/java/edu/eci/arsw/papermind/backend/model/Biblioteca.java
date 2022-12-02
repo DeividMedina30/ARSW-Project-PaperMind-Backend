@@ -8,37 +8,37 @@ import javax.persistence.*;
 public class Biblioteca {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)//El valor de esta PK es generada automáticamente con esta anotación
-	private Long idbiblioteca;
+	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "fecha_creacion")
-	private Date recreational;
+	@Column(name = "dateCreated")
+	private Date dateCreated;
 
-	@Column(name = "fecha_modificacion")
+	@Column(name = "fecha_modification")
 	private Date fecha_modification;
 
-	@Column(name = "descripcion")
+	@Column(name = "description")
 	private String description;
 
 	public Biblioteca(){
 		super();
 	}
 
-	public Biblioteca(String nombre, Date recreational, Date fecha_modification){
+	public Biblioteca(String nombre, Date dateCreated, Date fecha_modification){
 		super();
 		this.nombre = nombre;
-		this.recreational = recreational;
+		this.dateCreated = dateCreated;
 		this.fecha_modification = fecha_modification;
 	}
 
 	public Long getId_biblioteca() {
-		return idbiblioteca;
+		return id;
 	}
 
 	public void setId_biblioteca(Long id_biblioteca) {
-		this.idbiblioteca = id_biblioteca;
+		this.id = id_biblioteca;
 	}
 
 	public String getNombre() {
@@ -49,12 +49,12 @@ public class Biblioteca {
 		this.nombre = nombre;
 	}
 
-	public Date getFecha_recreational() {
-		return recreational;
+	public Date getFecha_dateCreated() {
+		return dateCreated;
 	}
 
-	public void setFecha_recreational(Date recreational) {
-		this.recreational = recreational;
+	public void setFecha_dateCreated(Date recreational) {
+		this.dateCreated = recreational;
 	}
 
 	public Date getFecha_modification() {
