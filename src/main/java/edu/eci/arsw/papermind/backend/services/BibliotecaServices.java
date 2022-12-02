@@ -36,7 +36,10 @@ public class BibliotecaServices {
     public ResponseEntity<?> updateBiblioteca(String name, Biblioteca bibliotecaDatos) {
         Biblioteca bibliotecaActualizar = getBibliotecaByName(name);
         Biblioteca bibliotecaExistente = getBibliotecaByName(bibliotecaDatos.getNombre());
-        if((bibliotecaExistente == null) || (bibliotecaActualizar.getId_biblioteca().equals(bibliotecaExistente.getId_biblioteca()))){
+        if(bibliotecaActualizar == null){
+            return new ResponseEntity<>("No se puede actualizar una biblioteca que no existe.",HttpStatus.NOT_FOUND);
+        }
+        else if((bibliotecaExistente == null) || (bibliotecaActualizar.getId_biblioteca().equals(bibliotecaExistente.getId_biblioteca()))){
         }
         else if((!bibliotecaDatos.getNombre().equals(bibliotecaExistente.getNombre()))){
         }else{
@@ -56,7 +59,7 @@ public class BibliotecaServices {
     public ResponseEntity<?> deleteBiblioteca(String nombre) {
         Biblioteca biblioteca = getBibliotecaByName(nombre);
         if(biblioteca == null){
-            return new ResponseEntity<>("Error al borrar nueva biblioteca Biblioteca",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Error al borrar Biblioteca",HttpStatus.BAD_REQUEST);
         }
         bibliotecaRepository.deleteById(biblioteca.getId_biblioteca());
         return new ResponseEntity<>("Se borro correctamente la biblioteca",HttpStatus.OK);
