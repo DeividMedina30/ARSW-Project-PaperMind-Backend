@@ -1,6 +1,8 @@
 package edu.eci.arsw.papermind.backend.controller;
 
 
+import edu.eci.arsw.papermind.backend.converter.BibliotecaConverter;
+import edu.eci.arsw.papermind.backend.dto.BibliotecaDto;
 import edu.eci.arsw.papermind.backend.exception.ResourceNotFoundException;
 import edu.eci.arsw.papermind.backend.model.Biblioteca;
 import edu.eci.arsw.papermind.backend.services.BibliotecaServices;
@@ -18,6 +20,8 @@ public class BibliotecaController {
 
     @Autowired
     private BibliotecaServices bibliotecaServices;
+    @Autowired
+    BibliotecaConverter bibliotecaConverter;
 
     //Get Bibliotecas
     @GetMapping("/bibliotecas")
@@ -33,8 +37,10 @@ public class BibliotecaController {
 
     //Save Biblioteca
     @PostMapping("/bibliotecas")
-    public ResponseEntity<?> createBiblioteca(@RequestBody Biblioteca biblioteca){
-        return bibliotecaServices.saveBiblioteca(biblioteca);
+    public ResponseEntity<?> createBiblioteca(@RequestBody BibliotecaDto bibliotecadto){
+        Biblioteca biblioteca = bibliotecaConverter.dtoToEntity(bibliotecadto);
+        ResponseEntity<?> bibliotecaAnswer = bibliotecaServices.saveBiblioteca(biblioteca);
+        return new ResponseEntity<>(bibliotecaAnswer.getBody(), bibliotecaAnswer.getStatusCode());
     }
 
     //Update Bibblioteca

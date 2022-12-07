@@ -1,5 +1,6 @@
 package edu.eci.arsw.papermind.backend.services;
 
+import edu.eci.arsw.papermind.backend.dto.BibliotecaDto;
 import edu.eci.arsw.papermind.backend.model.Biblioteca;
 import edu.eci.arsw.papermind.backend.repository.BibliotecaRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,8 @@ public class BibliotecaServicesTests {
     private BibliotecaServices bibliotecaServices;
 
     private Biblioteca biblioteca,biblioteca2;
+
+    private BibliotecaDto bibliotecaDto;
 
     private List<Biblioteca> bibliotecas;
 

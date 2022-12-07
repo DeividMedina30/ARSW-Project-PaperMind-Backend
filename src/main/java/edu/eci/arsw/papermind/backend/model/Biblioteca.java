@@ -14,7 +14,7 @@ public class Biblioteca {
 	private String nombre;
 
 	@Column(name = "date_created")
-	private Date date_created;
+	private Date fecha_dateCreated;
 
 	@Column(name = "fecha_modification")
 	private Date fecha_modification;
@@ -26,10 +26,10 @@ public class Biblioteca {
 		super();
 	}
 
-	public Biblioteca(String nombre, Date date_created, Date fecha_modification){
+	public Biblioteca(String nombre, Date fecha_dateCreated, Date fecha_modification){
 		super();
 		this.nombre = nombre;
-		this.date_created = date_created;
+		this.fecha_dateCreated = fecha_dateCreated;
 		this.fecha_modification = fecha_modification;
 	}
 
@@ -50,11 +50,11 @@ public class Biblioteca {
 	}
 
 	public Date getFecha_dateCreated() {
-		return date_created;
+		return fecha_dateCreated;
 	}
 
 	public void setFecha_dateCreated(Date recreational) {
-		this.date_created = recreational;
+		this.fecha_dateCreated = recreational;
 	}
 
 	public Date getFecha_modification() {
