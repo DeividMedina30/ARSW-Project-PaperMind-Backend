@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BibliotecaController {
 
     @Autowired
@@ -40,13 +39,15 @@ public class BibliotecaController {
     public ResponseEntity<?> createBiblioteca(@RequestBody BibliotecaDto bibliotecadto){
         Biblioteca biblioteca = bibliotecaConverter.dtoToEntity(bibliotecadto);
         ResponseEntity<?> bibliotecaAnswer = bibliotecaServices.saveBiblioteca(biblioteca);
-        return new ResponseEntity<>(bibliotecaAnswer.getBody(), bibliotecaAnswer.getStatusCode());
+        return bibliotecaAnswer;
     }
 
     //Update Bibblioteca
     @PutMapping("/bibliotecas/{name}")
-    public ResponseEntity<?> updateBiblioteca(@PathVariable(value = "name") String name, @RequestBody Biblioteca bibliotecaDatos) throws ResourceNotFoundException {
-        return this.bibliotecaServices.updateBiblioteca(name, bibliotecaDatos);
+    public ResponseEntity<?> updateBiblioteca(@PathVariable(value = "name") String name, @RequestBody BibliotecaDto bibliotecaDatosdto) throws ResourceNotFoundException {
+        Biblioteca biblioteca = bibliotecaConverter.dtoToEntity(bibliotecaDatosdto);
+        ResponseEntity<?> bibliotecaAnswer = bibliotecaServices.updateBiblioteca(name,biblioteca);
+        return bibliotecaAnswer;
     }
 
     //Delete Biblioteca
