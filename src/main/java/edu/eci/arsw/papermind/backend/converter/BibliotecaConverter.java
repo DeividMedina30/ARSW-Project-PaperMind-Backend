@@ -17,9 +17,9 @@ public class BibliotecaConverter {
         return map;
 
     }
-    public List<BibliotecaDto> entityToDto(List<Biblioteca> student) {
+    public List<BibliotecaDto> entityToDto(List<Biblioteca> biblioteca) {
 
-        return	student.stream().map(x -> entityToDto(x)).collect(Collectors.toList());
+        return	biblioteca.stream().map(x -> entityToDto(x)).collect(Collectors.toList());
 
     }
 

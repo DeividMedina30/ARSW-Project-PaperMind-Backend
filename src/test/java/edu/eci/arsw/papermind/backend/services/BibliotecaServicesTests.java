@@ -26,15 +26,10 @@ public class BibliotecaServicesTests {
     @Mock
     private static BibliotecaRepository bibliotecaRepository;
 
-    @Mock
-    private static BibliotecaRepository bibliotecaRepository2;
-
     @InjectMocks
     private BibliotecaServices bibliotecaServices;
 
     private Biblioteca biblioteca,biblioteca2;
-
-    private BibliotecaDto bibliotecaDto;
 
     private List<Biblioteca> bibliotecas;
 
