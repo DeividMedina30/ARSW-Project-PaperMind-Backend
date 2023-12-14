@@ -76,7 +76,7 @@ Los siguientes repositorios acontinuación son del mismo Frontend, pero debido a
 
 ![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%201.PNG "Caso de uso Usuario.")
 
-![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%202.PNGG "Caso de uso Desarrollador.")
+![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%202.PNG "Caso de uso Desarrollador.")
 
 <details>
 <summary>Crear una Biblioteca</summary>
@@ -221,7 +221,7 @@ Se implementa un despliegue continuo de la aplicación en la nube utilizando las
 
 ![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%201.PNG "Caso de uso Usuario.")
 
-![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%202.PNGG "Caso de uso Desarrollador.")
+![This is an alt text.](Diagramas/Caso%20de%20uso/Casos%20de%20uso%202.PNG "Caso de uso Desarrollador.")
 
 - ## Diagrama de contexto Spring Dos.
 
